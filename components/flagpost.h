@@ -1,0 +1,123 @@
+void flagPost(int x,int y,float scaleX=1.0,float scaleY=1.0,int rotationX=0,int rotationY=0,int rotationZ=0){
+	glTranslatef(x,y,0);
+	glRotatef(rotationX,1,0,0);
+	glRotatef(rotationY,0,1,0);
+	glRotatef(rotationZ,0,0,1);
+	glScalef(scaleX,scaleY,1);
+
+	// stairs
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.1,0.1);
+		glVertex2d(-200,-535);
+		glVertex2d(-200,-505);
+		glVertex2d(200,-505);
+		glVertex2d(200,-535);
+		glVertex2d(-200,-535);
+	glEnd();
+	glBegin(GL_LINE_STRIP);
+		glColor3f(0,0,0);
+		glVertex2d(-200,-535);
+		glVertex2d(-200,-505);
+		glVertex2d(200,-505);
+		glVertex2d(200,-535);
+		glVertex2d(-200,-535);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.1,0.1);
+		glVertex2d(-180,-505);
+		glVertex2d(-180,-475);
+		glVertex2d(180,-475);
+		glVertex2d(180,-505);
+		glVertex2d(-180,-505);
+	glEnd();
+	glBegin(GL_LINE_STRIP);
+		glColor3f(0,0,0);
+		glVertex2d(-180,-505);
+		glVertex2d(-180,-475);
+		glVertex2d(180,-475);
+		glVertex2d(180,-505);
+		glVertex2d(-180,-505);
+	glEnd();
+
+	glBegin(GL_POLYGON);
+		glColor3f(0.1,0.1,0.1);
+		glVertex2d(-160,-475);
+		glVertex2d(-160,-445);
+		glVertex2d(160,-445);
+		glVertex2d(160,-475);
+		glVertex2d(-160,-475);
+	glEnd();
+	glBegin(GL_LINE_STRIP);
+		glColor3f(0,0,0);
+		glVertex2d(-160,-475);
+		glVertex2d(-160,-445);
+		glVertex2d(160,-445);
+		glVertex2d(160,-475);
+		glVertex2d(-160,-475);
+	glEnd();
+
+	//flag pole
+	glBegin(GL_POLYGON);
+		glColor3f(0.4,0.4,0.4);
+		glVertex2d(-10,-445);
+		glVertex2d(-10,535);
+		glVertex2d(10,535);
+		glVertex2d(10,-445);
+		glVertex2d(-10,-445);
+	glEnd();
+	glBegin(GL_LINE_STRIP);
+		glColor3f(0,0,0);
+		glVertex2d(-10,-445);
+		glVertex2d(-10,535);
+		glVertex2d(10,535);
+		glVertex2d(10,-445);
+		glVertex2d(-10,-445);
+	glEnd();
+
+	// flag
+	glBegin(GL_POLYGON);
+		glColor3f(1.0,0.3,0.3);
+		glVertex2d(0,505);
+		glVertex2d(30,515);
+		glVertex2d(70,515);
+		glVertex2d(100,505);
+		glVertex2d(140,495);
+		glVertex2d(170,495);
+		glVertex2d(200,505);
+		glVertex2d(200,425);
+		glVertex2d(200,395);
+		glVertex2d(170,385);
+		glVertex2d(140,385);
+		glVertex2d(90,395);
+		glVertex2d(70,405);
+		glVertex2d(30,405);
+		glVertex2d(0,395);
+		glVertex2d(0,505);
+	glEnd();
+	glBegin(GL_LINE_STRIP);
+		glColor3f(0,0,0);
+		glVertex2d(0,505);
+		glVertex2d(30,515);
+		glVertex2d(70,515);
+		glVertex2d(100,505);
+		glVertex2d(140,495);
+		glVertex2d(170,495);
+		glVertex2d(200,505);
+		glVertex2d(200,425);
+		glVertex2d(200,395);
+		glVertex2d(170,385);
+		glVertex2d(140,385);
+		glVertex2d(90,395);
+		glVertex2d(70,405);
+		glVertex2d(30,405);
+		glVertex2d(0,395);
+		glVertex2d(0,505);
+	glEnd();
+
+	glScalef(1/scaleX,1/scaleY,1);
+	glRotatef(-rotationZ,0,0,1);
+	glRotatef(-rotationY,0,1,0);
+	glRotatef(-rotationX,1,0,0);
+	glTranslatef(-x,-y,0);
+}

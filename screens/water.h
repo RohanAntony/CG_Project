@@ -1,0 +1,49 @@
+void water(int x,int y,float scaleX=1.0,float scaleY=1.0){
+  glTranslatef(x,y,0);
+  glScalef(scaleX,scaleY,1);
+  glClearColor(GLOBAL_BACKGROUND_RED,GLOBAL_BACKGROUND_GREEN,GLOBAL_BACKGROUND_BLUE,1);
+  glClear(GL_COLOR_BUFFER_BIT);
+  background(0,-200,1,1,0,0,0,GLOBAL_BACKGROUND_LOWER_RED,GLOBAL_BACKGROUND_LOWER_GREEN,GLOBAL_BACKGROUND_LOWER_BLUE);
+
+  moon(cos(GLOBAL_SUN_DEG*3.14/360.0)*1000,200+sin(GLOBAL_SUN_DEG*3.14/360.0)*200,0.35,0.35);
+  cloud(GLOBAL_CLOUD1_POSITION,400,0.3,0.3);
+  cloud(GLOBAL_CLOUD2_POSITION,400,0.4,0.4);
+  well(-770,-150,0.4,0.4);
+  rainWaterHouse(-150,-50);
+  cloud(-170,350,0.7,0.7);
+  rain(-150,100+GLOBAL_RAIN_POSITION,0.7,1);
+
+  river(520,-200,1.3,0.35);
+  mountain(520,50,0.4,0.4);
+  tree1(410,0,0.08,0.08);
+  tree1(670,-120,0.14,0.14);
+  tree1(220,-200,0.25,0.25);
+
+  writeBitmapText(1050,550,"X");
+  writeBitmapText(0,-510,"Menu");
+  writeBitmapText(-880,550,"Water");
+
+
+  glScalef(1/scaleX,1/scaleY,1);
+  glTranslatef(-x,-y,0);
+}
+
+void waterMovement(){
+  if(GLOBAL_CLOUD1_POSITION > - 1200)
+    GLOBAL_CLOUD1_POSITION -= 8;
+  if(GLOBAL_CLOUD2_POSITION < 1200)
+    GLOBAL_CLOUD2_POSITION += 10;
+  if(GLOBAL_SUN_DEG > 100)
+    GLOBAL_SUN_DEG -= 1;
+
+  if(GLOBAL_RAIN_WAIT_ROTATION >= ITERATION_ROTATIONS && GLOBAL_RAIN_POSITION == -50){
+    GLOBAL_RAIN_WAIT_ROTATION = 0;
+    GLOBAL_RAIN_POSITION = 50;
+  }else if(GLOBAL_RAIN_WAIT_ROTATION >= ITERATION_ROTATIONS && GLOBAL_RAIN_POSITION == 50){
+    GLOBAL_RAIN_WAIT_ROTATION = 0;
+    GLOBAL_RAIN_POSITION = -50;
+  }else{
+    GLOBAL_RAIN_WAIT_ROTATION++;
+  }
+
+}
